@@ -210,10 +210,9 @@ class CPU {
     if (!this.reg[0xff - 2])  {this.reg[0xff - 2] = 1; return this.CORE2.startClock(2);}
     if (!this.reg[0xff - 3])  {this.reg[0xff - 3] = 1; return this.CORE3.startClock(3);}
     if (!this.reg[0xff - 4])  {this.reg[0xff - 4] = 1; return this.CORE4.startClock(4);}
-    
-   
+    loadCore(); // Recheck if all are busy
     }
-    loadCore();
+    loadCore(); //init load
   }
 }
 
