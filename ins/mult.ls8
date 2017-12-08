@@ -1,0 +1,30 @@
+# mult.ls8
+
+00000001 # initialize
+00000010 # SET current register
+00000000 # register R0
+00000100 # SAVE next
+01100100 # 100
+00000010 # SET current register
+00000001 # register R1
+00000100 # SAVE next
+11001000 # 200
+00000010 # SET current register
+00000010 # register R2
+00000101 # MUL into current register
+00000000 # register R0
+00000001 # register R1  (we've computed R2 = R0 * R1)
+00000110 # PRN (print numeric) (should print 72)
+00011100 # ROUT
+00010100 # 20
+00000010 # SET current register
+00000010 # register R2
+00000000 # HALT
+
+#SUB-ROUTINE
+00001000 # ADD into current register
+00000000 # register R0
+00000001 # register R1  (we've computed R2 = R0 + R1)
+00000110 # PRN (print numeric)
+10000000 # RET
+
