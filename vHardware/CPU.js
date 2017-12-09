@@ -44,11 +44,14 @@ class CORE {
 
   push(ins) {
     console.log('PUSH', 'ins: ' + ins);
-    this.RAM.mem.push(ins);
+    this.RAM.mem[0xff - 10]++;
+    this.RAM.mem[0xff + this.RAM.mem[0xff - 10]] = ins;
   }
   pop() {
     
-    this.PC = this.RAM.mem.pop();
+    this.PC = this.RAM.mem[0xff + this.RAM.mem[0xff - 10]];
+    this.RAM.mem[0xff + this.RAM.mem[0xff - 10]] = 0;
+    this.RAM.mem[0xff - 10]--;
     console.log('POP', this.PC);
   }
 
